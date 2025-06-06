@@ -54,8 +54,8 @@ function LockerControl() {
         setDistance(dist.toFixed(2));
         console.log("📏 Distance to kiosk:", dist);
 
-        // TEMP: Raise threshold to 1000 meters for testing
-        if (dist <= 1000) {
+        // TEMP: Raise threshold to 10000 meters for testing
+        if (dist <= 10000) {
           try {
             console.log("📦 About to call openLocker...");
             await openLocker(id);
