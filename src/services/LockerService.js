@@ -1,23 +1,20 @@
-const API_URL = process.env.REACT_APP_API_URL;
+const API_URL = process.env.REACT_APP_API_URL; // should be set to https://3k3uvssd8i.execute-api.ap-south-1.amazonaws.com/dev
 const API_KEY = process.env.REACT_APP_API_KEY;
 
-console.log("🌐 API_URL:", API_URL);
-console.log("🔐 API_KEY:", API_KEY);
-
-/**
- * Sends a request to open a specific locker.
- * @param {number} lockerId
- */
 export async function openLocker(lockerId) {
-  console.log("📦 Sending API request to:", `${API_URL}/openLocker/${lockerId}`);
+  // Convert lockerId to string explicitly
+  const lockerIdStr = String(lockerId);
 
-  const response = await fetch(`${API_URL}/openLocker/${lockerId}`, {
+  console.log("🧾 lockerId:", lockerIdStr, "| Type:", typeof lockerIdStr);
+  console.log("📦 Sending API request to:", `${API_URL}/open-locker`);
+
+  const response = await fetch(`${API_URL}/open-locker`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json',
       'x-api-key': API_KEY,
     },
-    body: JSON.stringify({ locker_id: lockerId }),
+    body: JSON.stringify({ locker_id: lockerIdStr }),  // sending lockerId as string inside JSON body
   });
 
   if (!response.ok) {
