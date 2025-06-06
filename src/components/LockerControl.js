@@ -66,7 +66,7 @@ function LockerControl() {
           }
         } else {
           console.warn("⚠️ Too far from kiosk:", dist);
-          setStatus(`📍 You are ${dist.toFixed(2)} meters away. Must be within 5 meters.`);
+          setStatus(`📍 You are ${dist.toFixed(2)} meters away. Must be within 50 meters.`);
         }
 
         setLoading(null);
